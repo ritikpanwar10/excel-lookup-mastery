@@ -8,12 +8,7 @@ A comprehensive hands-on guide covering Excel's core lookup functions: `VLOOKUP`
 
 Use this base table for the vertical lookup examples below:
 
-| EmpID | Name    | Department  | Salary  |
-|:------|:--------|:------------|:--------|
-| E101  | Rahul   | Analytics   | 65000   |
-| E102  | Priya   | Marketing   | 58000   |
-| E103  | Amit    | Finance     | 72000   |
-| E104  | Sneha   | Engineering | 90000   |
+<img width="401" height="182" alt="image" src="https://github.com/user-attachments/assets/a6a9f56f-a34f-4ed0-8eb1-53662c490b04" />
 
 ---
 
@@ -27,7 +22,7 @@ Searches for a value in the first column of a table and returns a value in the s
 ### Example
 Find the **Department** of Employee `E103`:
 
-=VLOOKUP("E103", A2:D5, 3, FALSE)
+<img width="539" height="288" alt="7" src="https://github.com/user-attachments/assets/59d13bef-1a02-4279-b7b3-45dd1af4df21" />
 
 Result: Finance
 
@@ -40,6 +35,7 @@ A2:D5: The entire data table range.
 3: Department is the 3rd column from EmpID.
 
 FALSE: Specifies an exact match.
+
 ---
 
 ## 3. HLOOKUP (Horizontal Lookup)
@@ -47,11 +43,7 @@ FALSE: Specifies an exact match.
 Searches for a value in the top row of a table and returns a value in the same column from a specified row.
 
 ### Sample Horizontal Dataset
-
-| Metric | Q1 | Q2 | Q3 | Q4 |
-| --- | --- | --- | --- | --- |
-| Sales | 12000 | 15000 | 18000 | 22000 |
-| Margin | 20% | 22% | 25% | 28% |
+<img width="454" height="132" alt="image" src="https://github.com/user-attachments/assets/d1c62838-4f41-4c70-97ed-786c294071da" />
 
 * **Syntax:** `=HLOOKUP(lookup_value, table_array, row_index_num, [range_lookup])`
 
@@ -59,10 +51,7 @@ Searches for a value in the top row of a table and returns a value in the same c
 
 Find the **Margin** for `Q3`:
 
-```excel
-=HLOOKUP("Q3", B1:E3, 2, FALSE)
-
-```
+<img width="541" height="209" alt="8" src="https://github.com/user-attachments/assets/dfcd5305-2053-477b-aeed-1b295f12718b" />
 
 * **Result:** `25%`
 * **Line-by-line Explanation:**
@@ -85,10 +74,8 @@ Returns the relative numeric position of an item in a single row or column.
 
 Find the row position of `Amit` in the Name column (`B2:B5`):
 
-```excel
-=MATCH("Amit", B2:B5, 0)
+<img width="474" height="261" alt="9" src="https://github.com/user-attachments/assets/a9ba81e1-ba79-4948-b76f-ee3a28608d4a" />
 
-```
 
 * **Result:** `3`
 * **Line-by-line Explanation:**
@@ -110,10 +97,8 @@ Returns the value of a cell at a given row and column coordinate within a range.
 
 Extract the value at Row 4, Column 4 from `A2:D5`:
 
-```excel
-=INDEX(A2:D5, 4, 4)
+<img width="445" height="270" alt="10" src="https://github.com/user-attachments/assets/5c195aab-2467-440b-abf1-1dab9c07da8b" />
 
-```
 
 * **Result:** `90000`
 * **Line-by-line Explanation:**
@@ -133,17 +118,13 @@ Combines INDEX and MATCH to overcome VLOOKUP limitations. It can look left, inse
 
 Given `Salary = 72000`, find the corresponding **Name**:
 
-```excel
-=INDEX(B2:B5, MATCH(72000, D2:D5, 0))
+<img width="588" height="268" alt="11" src="https://github.com/user-attachments/assets/ffde7bee-d362-4070-b9ba-c9b2e0fa187e" />
 
-```
 
 * **Result:** `Amit`
 * **Line-by-line Explanation:**
 * `MATCH(72000, D2:D5, 0)` executes first: scans the Salary column (`D2:D5`) and finds 72000 at relative position **3**.
 * `INDEX(B2:B5, 3)` executes second: retrieves the 3rd item from the Name column (`B2:B5`), returning **Amit**.
-
-
 
 ---
 
@@ -157,10 +138,7 @@ Replaces VLOOKUP, HLOOKUP, and INDEX+MATCH. Works in any direction (left/right/u
 
 Find the **EmpID** for Name `Priya`:
 
-```excel
-=XLOOKUP("Priya", B2:B5, A2:A5, "Not Found")
-
-```
+<img width="623" height="274" alt="12" src="https://github.com/user-attachments/assets/a53177fa-9423-450b-b17d-0091d69b0d49" />
 
 * **Result:** `E102`
 * **Line-by-line Explanation:**
@@ -175,10 +153,8 @@ Find the **EmpID** for Name `Priya`:
 
 Formula:
 
-```excel
-=XLOOKUP("Sneha", B2:B5, XLOOKUP("Salary", A1:D1, A2:D5))
+<img width="727" height="268" alt="13" src="https://github.com/user-attachments/assets/d2dcada5-f672-40b6-9cc6-44f53c8460db" />
 
-```
 
 * **Result:** `90000`
 * **Explanation:** The inner XLOOKUP dynamically picks the column based on the header "Salary", and the outer XLOOKUP filters by row for "Sneha".
